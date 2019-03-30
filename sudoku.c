@@ -67,9 +67,6 @@ int main() {
 		}
 		}
 	}
-//	printf(" %d \t %d \t %d\t %d \n", duplicate(testdoku,0,1),duplicate(testdoku,1,6),duplicate(testdoku,7,1),duplicate(testdoku,1,8));
-// do mc simulation etc.
-
 	int e,rown,coln,num;
 	while(total_e(newdoku) !=0) {
 		for(B=1; B<1000; B*=1.001) {
@@ -121,9 +118,3 @@ int main() {
 	getchar();
 	return 1;
 }
-
-
-
-
-
-
