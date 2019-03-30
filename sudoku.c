@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <assert.h>
 #include <math.h>
 #include "mt19937.h"
-#include <time.h>
 
 int sudoku[9][9] = {{0,3,5,0,8,0,2,0,0},
 					{0,0,0,0,0,0,5,9,0},
@@ -67,7 +64,7 @@ int main() {
 			}
 			else{
 				newdoku[i][j] = sudoku[i][j];
-			}
+		}
 		}
 	}
 //	printf(" %d \t %d \t %d\t %d \n", duplicate(testdoku,0,1),duplicate(testdoku,1,6),duplicate(testdoku,7,1),duplicate(testdoku,1,8));
@@ -121,10 +118,9 @@ int main() {
         printf("|\n");
         if ((i+1)%3 == 0) printf("+-----+-----+-----+\n");
 	}
-
+	getchar();
 	return 1;
 }
-
 
 
 
