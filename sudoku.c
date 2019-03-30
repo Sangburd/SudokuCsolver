@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdbool.h>
 #include "mt19937.h"
 
 int sudoku[9][9] = {{0,3,5,0,8,0,2,0,0},
@@ -70,24 +71,24 @@ int main() {
 	int e,rown,coln,num;
 	while(total_e(newdoku) !=0) {
 		for(B=1; B<1000; B*=1.001) {
-			int boolean = 1;
+			bool boolean = true;
 			rown = dsfmt_genrand()*9;
 			coln = dsfmt_genrand()*9;
 			if (sudoku[rown][coln]!=0) continue;
-			while(boolean ==1){
-				boolean = 0;
+			while(boolean){
+				boolean = false;
 				num = dsfmt_genrand()*9+1;
 				for(i=0;i<9;++i) {
 					if (i==rown) continue;
 					if(sudoku[i][coln] != 0 && newdoku[i][coln] == num) {
-						boolean = 1;
+						boolean = true;
 						break;
 					}
 				}
 				for(j=0;j<9;++j) {
 					if (j==coln) continue;
 					if(sudoku[rown][j] != 0 && newdoku[rown][j] == num) {
-						boolean = 1;
+						boolean = true;
 						break;
 					}
 				}	
@@ -95,11 +96,11 @@ int main() {
 				int colStart;
 				 
 				for (rowStart= ((int) rown/3)*3; rowStart < ((int) rown/3)*3 + 3; ++rowStart) {
-					if (boolean == 1) {break;}
+					if (boolean) {break;}
 					for (colStart = ((int) coln/3) * 3; colStart < ((int) coln/3)*3 + 3; ++colStart) {
 						if (rowStart == rown && colStart == coln) continue;
 						if (sudoku[rowStart][colStart]!=0 && newdoku[rowStart][colStart] == num) {
-							boolean = 1;
+							boolean = true;
 							break;
 						}
 					}
